@@ -1,18 +1,17 @@
-var b_y = prompt("Enter your birth year Month & Date: ");
+let b_y = prompt("Enter your Birth year, month, and day:");
+let birthday = new Date(b_y);
+let todayDate = new Date();
 
-var birthDate = new Date(b_y);
-var today = new Date();
+let milSec = todayDate.getTime() - birthday.getTime();
+let ageDay = milSec / (1000 * 3600 * 24);
 
-var ageInMilliseconds = today.getTime() - birthDate.getTime();
-var ageInDays = ageInMilliseconds / (1000 * 3600 * 24);
-
-var isLeapYear = (birthDate.getFullYear() % 4 == 0 && birthDate.getFullYear() % 100 != 0) || birthDate.getFullYear() % 400 == 0;
-if (isLeapYear) {
+let leapYear = (birthday.getFullYear % 4 == 0 && birthday.getFullYear % 100 != 0 || birthday.getFullYear % 400 == 0);
+if (leapYear) {
   ageInDays++;
 }
 
-var ageInYears = Math.floor(ageInDays / 365);
-var ageInMonths = Math.floor((ageInDays % 365) / 30);
-var ageInDaysLeft = Math.floor((ageInDays % 365) % 30);
+let agyear = Math.floor(ageDay / 365);
+let agMonth = Math.floor((ageDay % 365) / 30);
+let agday = Math.floor((ageDay % 365) % 30);
 
-document.write(ageInYears + " years, " + ageInMonths + " months " + ageInDaysLeft + " days.");
+document.write(agyear + " Year " + agMonth + " Month " + agday + " Day");
