@@ -7,7 +7,7 @@ let ageDay = milSec / (1000 * 3600 * 24);
 
 let leapYear = (birthday.getFullYear % 4 == 0 && birthday.getFullYear % 100 != 0 || birthday.getFullYear % 400 == 0);
 if (leapYear) {
-  ageInDays++;
+  ageDays++;
 }
 
 let agyear = Math.floor(ageDay / 365);
